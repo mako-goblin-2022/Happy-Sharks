@@ -10,8 +10,9 @@ function Home() {
   useEffect(() => {
     getShark()
       .then((sharkData) => {
+        const onlySharks = sharkData.filter((shark) => shark["Species Name"].includes("Shark") )
         //?.filter shark data to contain only sharks where shark["Species Name"] contains "shark then set to state?? 
-        setSharks(sharkData)
+        setSharks(onlySharks)
       })
       .catch((err) => {
         console.error(err.message)
