@@ -27,11 +27,20 @@ function Home() {
  
     <div>
       
+     {/* {displayShark&& <div
+      dangerouslySetInnerHTML={{__html: displayShark["Physical Description"]}}
+    />} */}
+ 
     
-      {displayShark &&<><p>{displayShark["Species Name"]}</p>
-      <div>{displayShark["Physical Description"]}</div>
-      <img src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} /></>}
-    {console.log(displayShark)}
+      {displayShark &&
+      <>
+      <p>{displayShark["Species Name"]}</p>
+      <img src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} />
+      <div
+      dangerouslySetInnerHTML={{__html: displayShark["Physical Description"]}}
+      />
+    </>}
+  
 
 {/* // {let displayShark = sharks.find((shark) => shark == randomShark)} */}
 
