@@ -21,6 +21,10 @@ function Home() {
       })
   }, [])
 
+  const refreshPage = () => {
+    window.location.reload()
+  }
+
   let displayShark = sharks.find((shark, index) => index == randomShark)
 
   return (
@@ -35,11 +39,12 @@ function Home() {
       {displayShark &&
       <>
       <p>{displayShark["Species Name"]}</p>
-      <img src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} />
+      <img onClick={refreshPage}src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} />
       <div
       dangerouslySetInnerHTML={{__html: displayShark["Physical Description"]}}
       />
     </>}
+
   
 
 {/* // {let displayShark = sharks.find((shark) => shark == randomShark)} */}
