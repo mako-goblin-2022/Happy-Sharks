@@ -3,27 +3,41 @@ import React, { useState, useEffect } from 'react'
 import { getShark } from '../apiClient'
 
 function Home() {
- 
-  // randomShark = Math.floor(Math.random() * sharks.length)
 
   const [sharks, setSharks] = useState([])
+
+  let randomShark = Math.floor(Math.random() * sharks.length)
 
   useEffect(() => {
     getShark()
       .then((sharkData) => {
-        console.log(sharkData)
-        const onlySharks = sharkData.filter((shark) => shark["Physical Description"].includes("fin") )
+        // console.log(sharkData)
+        const onlyFish = sharkData.filter((shark) => shark["Physical Description"].includes("fin") )
         //?.filter shark data to contain only sharks where shark["Species Name"] contains "shark then set to state?? 
-        setSharks(onlySharks)
+        setSharks(onlyFish)
       })
       .catch((err) => {
         console.error(err.message)
       })
   }, [])
 
+  let displayShark = sharks.find((shark, index) => index == randomShark)
+
   return (
-  <div>
-  <ul>
+ 
+    <div>
+      
+    
+      {displayShark &&<><p>{displayShark["Species Name"]}</p>
+      <div>{displayShark["Physical Description"]}</div>
+      <img src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} /></>}
+    {console.log(displayShark)}
+
+{/* // {let displayShark = sharks.find((shark) => shark == randomShark)} */}
+
+
+
+  {/* <ul>
         {sharks.map((shark, index) => (
           <li key={index}>
             {shark["Species Name"]}
@@ -32,7 +46,7 @@ function Home() {
             
           </li>
         ))}
-      </ul>
+      </ul> */}
 
 
 
