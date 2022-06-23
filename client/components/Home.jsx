@@ -4,13 +4,15 @@ import { getShark } from '../apiClient'
 
 function Home() {
  
+  // randomShark = Math.floor(Math.random() * sharks.length)
 
   const [sharks, setSharks] = useState([])
 
   useEffect(() => {
     getShark()
       .then((sharkData) => {
-        const onlySharks = sharkData.filter((shark) => shark["Species Name"].includes("Shark") )
+        console.log(sharkData)
+        const onlySharks = sharkData.filter((shark) => shark["Physical Description"].includes("fin") )
         //?.filter shark data to contain only sharks where shark["Species Name"] contains "shark then set to state?? 
         setSharks(onlySharks)
       })
@@ -26,7 +28,7 @@ function Home() {
           <li key={index}>
             {shark["Species Name"]}
             <img src={shark["Species Illustration Photo"].src} alt= {shark["Species Name"]} />
-            
+            {shark["Physical Description"]}
             
           </li>
         ))}
