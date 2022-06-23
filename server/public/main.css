@@ -1,0 +1,26 @@
+body {
+  /* background-image: linear-gradient(0deg, #022244, #58c8da); */
+  background-color: #05668D;
+}
+
+.main{
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  max-width: 60%;
+  margin:auto;
+}
+
+
+.text-field {
+
+  max-width: 100%;
+  margin-top: 10vw;
+  background-color: #EDF6F9;
+}
+.card img{
+border-radius: 50%;
+}
+
+.card
