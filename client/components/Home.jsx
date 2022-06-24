@@ -29,20 +29,34 @@ function Home() {
 
   return (
  
-    <div>
+    <div className = 'main'>
+      <div className = 'title'><h1>Sharkquarium</h1></div>
       
      {/* {displayShark&& <div
       dangerouslySetInnerHTML={{__html: displayShark["Physical Description"]}}
     />} */}
  
-    
+   
       {displayShark &&
       <>
+
+      <div className="card">
+      
+      <div className ="img-container">
+     
+      <img src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} />
+      </div>
+      <h2 className='name'>{displayShark["Species Name"]}</h2>
+      <div className='text-field'
+
       <p>{displayShark["Species Name"]}</p>
       <img onClick={refreshPage}src={displayShark["Species Illustration Photo"].src} alt= {displayShark["Species Name"]} />
       <div
+
       dangerouslySetInnerHTML={{__html: displayShark["Physical Description"]}}
       />
+      
+      </div>
     </>}
 
   
